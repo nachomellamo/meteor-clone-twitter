@@ -1,20 +1,167 @@
 <head>
-  <title>twitterClone</title>
+  <title>MeteorJs Twitter Clone Toy</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
-<body>
-  <div class="row">
-    <div class="col-md-4 col-xs-4">
-      {{> userManagement}}
-      {{#if currentUser}}
-      {{> followUsers}}
-      {{/if}}
+<body id="myPage" data-spy="scroll" data-target=".navbar"
+data-offset="50">
+
+<!-- Container (NAvBAR Section) -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#myPage">MeteorJS Twitter-Clone</a>
     </div>
-    <div class="col-md-8 col-xs-8">
-      {{> tweetBox}}
-      {{#if currentUser}}
-      {{> tweetFeed}}
-      {{/if}}
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        {{#if currentUser}}
+          <!-- WHITE SPACE -->
+        {{else}}
+          <li><a href="#index">HOME</a></li>
+          <li><a href="#login">LOGIN/REGISTER</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        {{/if}}
+
+      </ul>
     </div>
   </div>
+</nav>
+<!-- Template for Clone -->
+{{#if currentUser}}
+  <div class="row text-center">
+      <div class="col-md-4 col-xs-4">
+          {{> userManagement}}
+          {{> followUsers}}
+      </div>
+      <div class="col-md-8 col-xs-8">
+        {{> tweetBox}}
+        {{> tweetFeed}}
+      </div>
+    </div>
+{{else}}
+
+<!-- Container (HOME Section) -->
+<div id="index" class="container text-center">
+<br/><br/>
+  <h3>MeteorJs Twitter Clone</h3>
+  <p><em>We love music!</em></p>
+  <p>kate ipsum dolor sit amet, World Industries crail grab kingpin coper grab lip. Acid drop bone air bruised heel grab nose blunt.
+    Alley oop poseur Ron Allen feeble bail griptape. Frontside air hanger bearings griptape nose bump. Frontside air transition
+     method air dude street. Rocket air rail slide bluntslide dude shinner. Judo air wax method air slap maxwell poseur.
+     Steve Alba yeah rail slide nosebone late death box. Tailslide hang-up pump 540 flypaper.</p>
+
+  <p>Airwalk rocket air sponsored no comply judo air hurricane hip. Vert melancholy grab 50-50 opposite footed layback dude. Skate
+    key fast plant nose Alien Workshop transfer nosebone cess slide hard flip. Nose-bump late nose bump nose blunt crailtap air
+     helipop. Bail half-cab invert wall ride air coffin launch ramp. Half-cab crailtap switch airwalk pressure flip hard flip
+     ho-ho. Launch ramp no comply wheels acid drop dude nosegrind steps. Casper airwalk egg plant nose-bump disaster full-cab
+     hurricane Jeremy Wray. Feeble wall ride pop shove-it death box finger flip lipslide switch.
+   </p>
+   <p>kate ipsum dolor sit amet, World Industries crail grab kingpin coper grab lip. Acid drop bone air bruised heel grab nose blunt.
+     Alley oop poseur Ron Allen feeble bail griptape. Frontside air hanger bearings griptape nose bump. Frontside air transition
+      method air dude street. Rocket air rail slide bluntslide dude shinner. Judo air wax method air slap maxwell poseur.
+      Steve Alba yeah rail slide nosebone late death box. Tailslide hang-up pump 540 flypaper.</p>
+
+   <p>Airwalk rocket air sponsored no comply judo air hurricane hip. Vert melancholy grab 50-50 opposite footed layback dude. Skate
+     key fast plant nose Alien Workshop transfer nosebone cess slide hard flip. Nose-bump late nose bump nose blunt crailtap air
+      helipop. Bail half-cab invert wall ride air coffin launch ramp. Half-cab crailtap switch airwalk pressure flip hard flip
+      ho-ho. Launch ramp no comply wheels acid drop dude nosegrind steps. Casper airwalk egg plant nose-bump disaster full-cab
+      hurricane Jeremy Wray. Feeble wall ride pop shove-it death box finger flip lipslide switch.
+    </p>
+  <br>
+</div>
+
+<!-- Container (LOGIN Section) -->
+<div id="login" class="bg-1">
+  <div class="container">
+    <h3 class="text-center">LOGIN / REGISTER</h3>
+    <p class="text-center">Lorem ipsum we'll play you some music.<br> Remember to book your tickets!</p>
+
+  <div class="row">
+      <div class="col-xs-3 col-sm-3"></div>
+      <div class="col-xs-6 col-sm-6">{{> userManagement}}</div>
+    </div>
+  </div>
+</div>
+
+<!-- Container (Contact Section) -->
+<div id="contact" class="container">
+  <h3 class="text-center">Contact</h3>
+  <p class="text-center"><em>We love our fans!</em></p>
+
+  <div class="row">
+    <div class="col-md-4">
+      <p>Fan? Drop a note.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span>Chicago, US</p>
+      <p><span class="glyphicon glyphicon-phone"></span>Phone: +00 1515151515</p>
+      <p><span class="glyphicon glyphicon-envelope"></span>Email: mail@mail.com</p>
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
+      <br>
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <button class="btn pull-right" type="submit">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+
+</div>
+
+{{/if}}
+<!-- Footer -->
+<footer class="text-center">
+  <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a><br><br>
+  <p>Bootstrap Theme Made By <a href="https://www.w3schools.com" data-toggle="tooltip" title="Visit w3schools">www.w3schools.com</a></p>
+</footer>
+<script>
+$(document).ready(function(){
+  // Initialize Tooltip
+  $('[data-toggle="tooltip"]').tooltip();
+
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+})
+</script>
 </body>
